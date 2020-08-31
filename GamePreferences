@@ -1,0 +1,131 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public static class GamePreferences
+{
+    public static string EasyDifficulty = "EasyDifficulty";
+    public static string MediumDifficulty = "MediumDifficulty";
+    public static string HardDifficulty = "HardDifficulty";
+
+    public static string EasyDifficultyHighScore = "EasyDifficultyHighScore";
+    public static string MediumDifficultyHighScore = "MediumDifficultyHighScore";
+    public static string HardDifficultyHighScore = "HardDifficultyHighScore";
+
+    public static string EasyDifficultyCoinScore = "EasyDifficultyCoinScore";
+    public static string MediumDifficultyCoinScore = "MediumDifficultyCoinScore";
+    public static string HardDifficultyCoinScore = "HardDifficultyCoinScore";
+
+    public static string IsMusicOn = "IsMusicOn";
+
+    //note we are going to use integers to represetn booleon variable
+    // 0 = false and 1 = true
+
+    public static int GetMusicState()
+    {
+        return PlayerPrefs.GetInt(GamePreferences.IsMusicOn);
+    }
+
+  
+    public static void SetMusicState(int state)
+    {
+        PlayerPrefs.SetInt(GamePreferences.IsMusicOn, state);
+    }
+
+
+    // method for getting easy difficulty state
+    public static int GetEasyDifficultyState()
+    {
+        return PlayerPrefs.GetInt(GamePreferences.EasyDifficulty);
+    }
+
+    // method for setting easy difficulty state
+    public static void SetEasyDifficultyState(int state)
+    {
+        PlayerPrefs.SetInt(GamePreferences.EasyDifficulty, state);
+
+    }
+    // method for getting medium difficulty state
+    public static int GetMediumDifficultyState()
+    {
+        return PlayerPrefs.GetInt(GamePreferences.MediumDifficulty);
+    }
+    // method for setting Medium difficulty state
+    public static void SetMediumDifficultyState(int state)
+    {
+        PlayerPrefs.SetInt(GamePreferences.MediumDifficulty, state);
+    }
+
+    // method for getting Hard difficulty state
+    public static int GetHardDifficultyState()
+    {
+        return PlayerPrefs.GetInt(GamePreferences.HardDifficulty);
+    }
+    // method for setting Hard difficulty state
+    public static void SetHardDifficultyState(int state)
+    {
+        PlayerPrefs.SetInt(GamePreferences.HardDifficulty, state);
+    }
+      
+    // method for getting EasyDifficultyHighScore
+    public static int GetEasyDifficultyHighScore()
+    {
+        return PlayerPrefs.GetInt(GamePreferences.EasyDifficultyHighScore);
+    }
+    // method for setting easy difficulty state
+    public static void SetEasyDifficultyHighScore(int score)
+    {
+        PlayerPrefs.SetInt(GamePreferences.EasyDifficultyHighScore, score);
+    }
+    // method for getting MediumDifficultyHighScore
+    public static int GetMediumDifficultyHighScore()
+    {
+        return PlayerPrefs.GetInt(GamePreferences.MediumDifficultyHighScore);
+    }
+    // method for setting medium difficulty state
+    public static void SetMediumDifficultyHighScore(int score)
+    {
+        PlayerPrefs.SetInt(GamePreferences.MediumDifficultyHighScore, score);
+    }
+    // method for getting HardDifficultyHighScore
+    public static int GetHardDifficultyHighScore()
+    {
+        return PlayerPrefs.GetInt(GamePreferences.HardDifficultyHighScore);
+    }
+    // method for setting Hard difficulty state
+    public static void SetHardDifficultyHighScore(int score)
+    {
+        PlayerPrefs.SetInt(GamePreferences.HardDifficultyHighScore, score);
+    }
+
+    // method for getting EasyDifficultyCoinScore
+    public static int GetEasyDifficultyCoinScore()
+    {
+        return PlayerPrefs.GetInt(GamePreferences.EasyDifficultyCoinScore);
+    }
+    // method for setting EasyDifficultyCoinScore
+    public static void SetEasyDifficultyCoinScore(int score)
+    {
+        PlayerPrefs.SetInt(GamePreferences.EasyDifficultyCoinScore, score);
+    }
+    // method for getting MediumDifficultyCoinScore
+    public static int GetMediumDifficultyCoinScore()
+    {
+        return PlayerPrefs.GetInt(GamePreferences.MediumDifficultyCoinScore);
+    }
+    // method for setting MediumDifficultyCoinScore
+    public static void SetMediumDifficultyCoinScore(int score)
+    {
+        PlayerPrefs.SetInt(GamePreferences.MediumDifficultyCoinScore, score);
+    }
+    // method for getting HardDifficultyCoinScore
+    public static int GetHardDifficultyCoinScore()
+    {
+        return PlayerPrefs.GetInt(GamePreferences.HardDifficultyCoinScore);
+    }
+    // method for setting MediumDifficultyCoinScore
+    public static void SetHardDifficultyCoinScore(int score)
+    {
+        PlayerPrefs.SetInt(GamePreferences.HardDifficultyCoinScore, score);
+    }
+}
