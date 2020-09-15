@@ -1,0 +1,59 @@
+using System.Collections;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SceneFader : MonoBehaviour
+{
+    public static SceneFader instance;
+    [SerializeField]
+    private GameObject fadePanel;
+    [SerializeField]
+    private Animator fadeAnim;
+    // Start is called before the first frame update
+    void Awake()
+    {
+        MakeSingleton();
+    }
+
+    // Update is called once per frame
+    void MakeSingleton()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+
+        }
+
+    }
+    public void LoadLevel(string level)
+        //public void LoadLevel(string Scene)
+    {
+    StartCoroutine(FadeInOut (level));
+        //StartCoroutine(FadeInOut(Scene));
+    }
+    IEnumerator FadeInOut(string level)
+        // IEnumerator FadeInOut(string Scene)
+    {
+        fadePanel.SetActive(true);
+        fadeAnim.Play("FadeIn");
+
+        yield return StartCoroutine(MyCoroutine.WaitForRealSeconds (1f));
+
+       SceneManager.LoadScene (level);
+        //SceneManager.LoadScene();
+
+        fadeAnim.Play("FadeOut");
+
+        yield return StartCoroutine(MyCoroutine.WaitForRealSeconds(.7f));
+
+        fadePanel.SetActive(false);
+   
+    }
+
+}
