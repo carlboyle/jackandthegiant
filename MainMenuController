@@ -1,0 +1,77 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using UnityEngine;
+using UnityEngine.UI;
+
+
+
+public class MainMenuController : MonoBehaviour
+{
+    [SerializeField]
+    private Button musicBtn;
+    // Start is called before the first frame update
+    [SerializeField]
+    private Sprite[] musicIcons;
+
+    void Start()
+    {
+        CheckToPlayTheMusic();
+    }
+
+    void CheckToPlayTheMusic()
+    {
+        if (GamePreferences.GetMusicState () ==1)
+
+       {
+            MusicManager.instance.PlayMusic(true);
+            musicBtn.image.sprite = musicIcons[1];
+        }
+        else
+        {
+            MusicManager.instance.PlayMusic(false);
+            musicBtn.image.sprite = musicIcons[0];
+        }
+    }
+
+    // Update is called once per frame
+    public void StartGame()
+    {
+        GameplayManager.instance.gameStartedFromMainMenu = true;
+        //SceneManager.LoadScene ("Gameplay");
+        SceneFader.instance.LoadLevel("Gameplay");
+    }
+    public void HighscoreMenu()
+    {
+        SceneManager.LoadScene ("HighscoreScene");
+    }
+    public void OptionsMenu()
+    {
+        SceneManager.LoadScene("OptionsMenu");
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    public void MusicButton()
+    {
+        if (GamePreferences.GetMusicState() == 0)
+
+        {
+            
+                GamePreferences.SetMusicState(1);
+                MusicManager.instance.PlayMusic(true);
+                musicBtn.image.sprite = musicIcons[1];
+
+            
+        }
+        else if (GamePreferences.GetMusicState() == 1)
+        {
+            GamePreferences.SetMusicState(0);
+            MusicManager.instance.PlayMusic(false);
+            musicBtn.image.sprite = musicIcons[0];
+        }
+         
+          
+    }
+}
